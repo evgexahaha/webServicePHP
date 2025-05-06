@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Веб-сервис на PHP 8.3</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Добавление записи</h1>
+
+        <form action="save.php" method="post">
+            <div class="row">
+                <div class="formElem">
+                    <label for="name">ФИО *</label>
+                    <input type="text" id="name" name="name" style="width: 300px;" required>
+                </div>
+    
+                <div class="formElem">
+                    <label for="department">Отдел *</label>
+                    <select id="department" name="department" style="width: 300px;" required>
+                        <option value="1">Не выбрано</option>
+                        <option value="2">Коммерчиский отдел</option>
+                        <option value="3">Монтажный отдел</option>
+                        <option value="4">Руководящий состав</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="formElem">
+                    <label for="dateOfBirth">Дата рождения *</label>
+                    <input type="date" id="dateOfBirth" name="dateOfBirth" style="width: 300px;" required>
+                </div>
+    
+                <div class="formElem">
+                    <label for="post">Должность *</label>
+                    <input type="text" id="post" name="post" style="width: 300px;" required>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="formElem">
+                    <label for="phone">Номер телефона *</label>
+                    <input type="text" id="phone" name="phone" style="width: 300px;" required>
+                </div>
+            </div>
+
+            <p style="margin-left: 20px;">Документ, удостоверяющий личность *</p>
+            
+            <div class="typeDoc">
+                <div>
+                    <input type="radio" id="passport" name="typeDoc" value="passport" v-model="documentType">
+                    <label for="passport">Паспорт</label>
+                </div>
+
+                <div>
+                    <input type="radio" id="carCertificate" name="typeDoc" value="carCertificate" v-model="documentType">
+                    <label for="carCertificate">Водительское удостоверение</label>
+                </div>
+
+                <div>
+                    <input type="radio" id="any" value="any" name="typeDoc" v-model="documentType">
+                    <label for="any">Прочее</label> 
+                </div>
+            </div>
+
+            <div class="passport" v-if="documentType === 'passport'">
+                <div class="row">
+                    <div class="formElem">
+                        <label for="series_Passport">Серия *</label>
+                        <input type="text" id="series_Passport" name="series_Passport" style="width: 300px;" required>
+                    </div>
+    
+                    <div class="formElem">
+                        <label for="phone_Passport">Номер *</label>
+                        <input type="text" id="phone_Passport" name="phone_Passport" style="width: 300px;" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="formElem">
+                        <label for="date_Passport">Дата выдачи *</label>
+                        <input type="date" id="date_Passport" name="date_Passport" style="width: 300px;" required>
+                    </div>
+    
+                    <div class="formElem">
+                        <label for="whoIssued_Passport">Кем выдан *</label>
+                        <input type="text" id="whoIssued_Passport" name="whoIssued_Passport" style="width: 300px;" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="formElem">
+                        <label for="code">Код подразделения *</label>
+                        <input type="text" id="code" name="code" style="width: 300px;" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carCertificate" v-if="documentType === 'carCertificate'">
+                <div class="row">
+                    <div class="formElem">
+                        <label for="series_Car">Серия и номер *</label>
+                        <input type="text" id="series_Car" name="series_Car" style="width: 300px;" required>
+                    </div>
+    
+                    <div class="formElem">
+                        <label for="date_Car">Дата выдачи *</label>
+                        <input type="date" id="date_Car" name="date_Car" style="width: 300px;" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="formElem">
+                        <label for="region_Car">Регион *</label>
+                        <input type="text" id="region_Car" name="region_Car" style="width: 300px;" required>
+                    </div>
+    
+                    <div class="formElem">
+                        <label for="whoIssued_Car">Кем выдан *</label>
+                        <input type="text" id="whoIssued_Car" name="whoIssued_Car" style="width: 300px;" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="any" v-if="documentType === 'any'">
+                <div class="row">
+                    <div class="formElem">
+                        <label for="name_Any">Название документа *</label>
+                        <input type="text" id="name_Any" name="name_Any" style="width: 300px;" required>
+                    </div>
+    
+                    <div class="formElem">
+                        <label for="series_Any">Серия и номер *</label>
+                        <input type="text" id="series_Any" name="series_Any" style="width: 300px;" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="formElem">
+                        <label for="date_Any">Дата выдачи *</label>
+                        <input type="date" id="date_Any" name="date_Any" style="width: 300px;" required>
+                    </div>
+    
+                    <div class="formElem">
+                        <label for="whoIssued_Any">Кем выдан *</label>
+                        <input type="text" id="whoIssued_Any" name="whoIssued_Any" style="width: 300px;" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="formElem">
+                    <label for="timeStart">Дата и время входа *</label>
+                    <input type="datetime-local" id="timeStart" name="timeStart" style="width: 300px;" required>
+                </div>
+    
+                <div class="formElem">
+                    <label for="timeEnd">Дата и время выхода *</label>
+                    <input type="datetime-local" id="timeEnd" name="timeEnd" style="width: 300px;" required>
+                </div>  
+            </div>
+
+            <div class="row">   
+                <div class="formElem">
+                    <label for="comment">Замечание</label>
+                    <input type="text" name="comment" id="comment" style="width: 640px; height: 53px;">
+                </div>
+            </div>
+
+            <div class="buttons" style="margin-left: 20px;">
+                <button class="buttonSave">Сохранить</button>
+                <button @click="resetForm" class="buttonСancel" style="margin-left: 20px;">Отмена</button>
+
+                <p style="margin-left: 81px;">* - обязательные для заполнения поля</p>
+            </div>
+        </form>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
