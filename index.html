@@ -15,7 +15,7 @@
             <div class="row">
                 <div class="formElem">
                     <label for="name">ФИО *</label>
-                    <input type="text" id="name" name="name" style="width: 300px;" required>
+                    <input type="text" id="name" name="name" style="width: 300px;" maxlength="150" required>
                 </div>
     
                 <div class="formElem">
@@ -37,14 +37,14 @@
     
                 <div class="formElem">
                     <label for="post">Должность *</label>
-                    <input type="text" id="post" name="post" style="width: 300px;" required>
+                    <input type="text" id="post" name="post" maxlength="150" style="width: 300px;" required>
                 </div>
             </div>
 
             <div class="row">
                 <div class="formElem">
                     <label for="phone">Номер телефона *</label>
-                    <input type="text" id="phone" name="phone" style="width: 300px;" required>
+                    <input type="text" id="phone" name="phone" placeholder="+7(xxx)xxx-xx-xx" style="width: 300px;" required>
                 </div>
             </div>
 
@@ -88,14 +88,14 @@
     
                     <div class="formElem">
                         <label for="whoIssued_Passport">Кем выдан *</label>
-                        <input type="text" id="whoIssued_Passport" name="whoIssued_Passport" style="width: 300px;" required>
+                        <input type="text" id="whoIssued_Passport" maxlength="250" name="whoIssued_Passport" style="width: 300px;" required>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="formElem">
                         <label for="code">Код подразделения *</label>
-                        <input type="text" id="code" name="code" style="width: 300px;" required>
+                        <input type="text" id="code" name="code" maxlength="7" placeholder="ххх-ххх" style="width: 300px;" required>
                     </div>
                 </div>
             </div>
@@ -116,12 +116,12 @@
                 <div class="row">
                     <div class="formElem">
                         <label for="region_Car">Регион *</label>
-                        <input type="text" id="region_Car" name="region_Car" style="width: 300px;" required>
+                        <input type="text" id="region_Car" maxlength="150" name="region_Car" style="width: 300px;" required>
                     </div>
     
                     <div class="formElem">
                         <label for="whoIssued_Car">Кем выдан *</label>
-                        <input type="text" id="whoIssued_Car" name="whoIssued_Car" style="width: 300px;" required>
+                        <input type="text" id="whoIssued_Car" maxlength="250" name="whoIssued_Car" style="width: 300px;" required>
                     </div>
                 </div>
             </div>
@@ -130,12 +130,12 @@
                 <div class="row">
                     <div class="formElem">
                         <label for="name_Any">Название документа *</label>
-                        <input type="text" id="name_Any" name="name_Any" style="width: 300px;" required>
+                        <input type="text" id="name_Any" name="name_Any" maxlength="150" style="width: 300px;" required>
                     </div>
     
                     <div class="formElem">
                         <label for="series_Any">Серия и номер *</label>
-                        <input type="text" id="series_Any" name="series_Any" style="width: 300px;" required>
+                        <input type="number" id="series_Any" min="0" name="series_Any" style="width: 300px;" required>
                     </div>
                 </div>
 
@@ -147,7 +147,7 @@
     
                     <div class="formElem">
                         <label for="whoIssued_Any">Кем выдан *</label>
-                        <input type="text" id="whoIssued_Any" name="whoIssued_Any" style="width: 300px;" required>
+                        <input type="text" id="whoIssued_Any" maxlength="250" name="whoIssued_Any" style="width: 300px;" required>
                     </div>
                 </div>
             </div>
@@ -167,7 +167,7 @@
             <div class="row">   
                 <div class="formElem">
                     <label for="comment">Замечание</label>
-                    <input type="text" name="comment" id="comment" style="width: 640px; height: 53px;">
+                    <input type="text" name="comment" id="comment" maxlength="256" style="width: 640px; height: 53px;">
                 </div>
             </div>
 
